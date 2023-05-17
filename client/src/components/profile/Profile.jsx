@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Profile.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -23,16 +22,6 @@ function Profile() {
    
 
     // fetching  user details from the server
-    const userInstance = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
-    
-})
-// user instance request interceptor 
-userInstance.interceptors.request.use((request) => {
-    const token = localStorage.getItem("userAuthToken");
-    request.headers.Authorization = `Bearer ${token}`
-    return request
-})
     const fetchData = async () => {
       const token = localStorage.getItem("userAuthToken");
 
